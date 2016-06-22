@@ -56,13 +56,13 @@ mb.on('ready', function ready() {
 		mb.tray.setContextMenu(Menu.buildFromTemplate(contextMenu));
 	}
 
-	function shorten(url) {
+	function shorten(e, longUrl) {
 		let req = settings.apiUrl + '/yourls-api.php?format=json&action=shorturl&signature=' + settings.token + '&url=';
 
-		if (url) {
-			req += url;
+		if (longUrl) {
+			req += longUrl;
 		} else {
-			req += clipboard.getText();
+			req += clipboard.readText();
 		}
 
 		console.log(req);
