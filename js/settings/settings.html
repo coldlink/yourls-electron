@@ -1,0 +1,12 @@
+<md-content flex layout-padding>
+    <h1>{{vm.heading}}</h1>
+    <div layout-gt-xs="row">
+        <md-input-container>
+            <label>API Url</label>
+            <input ng-model="vm.apiUrl">
+        </md-input-container>
+    </div>
+    <div layout-gt-xs="row">
+      <md-button class="md-raised md-primary" ng-click="save()">Save Settings</md-button>
+    </div>
+</md-content>
