@@ -4,7 +4,7 @@
   angular.module('YourlsApp')
     .controller("SettingsCtrl", SettingsCtrl);
 
-  function SettingsCtrl($localStorage) {
+  function SettingsCtrl($localStorage, $ipc) {
     var vm = this;
     var lsk = 'settings';
 
@@ -40,7 +40,15 @@
       if (Object.keys(vm.error).length > 0) {
         return;
       }
+
+      //if user left yourls-api.php or trailing slash in url
+      vm.settings.apiUrl = vm.settings.apiUrl.replace('yourls-api.php', '');
+      if (vm.settings.apiUrl.lastIndexOf('/') === vm.settings.apiUrl.length - 1) {
+        vm.settings.apiUrl = vm.settings.apiUrl.slice(0, -1);
+      }
+
       $localStorage.set(lsk, vm.settings);
+      $ipc.send(lsk, vm.settings);
       vm.error.saved = 'Settings Saved!';
     }
   }
