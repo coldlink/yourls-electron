@@ -6,6 +6,5 @@
 
   function MainCtrl() {
     var vm = this;
-    vm.heading = 'Home Page';
   }
 })();

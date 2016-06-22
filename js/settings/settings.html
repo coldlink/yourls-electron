@@ -1,12 +1,27 @@
 <md-content flex layout-padding>
-    <h1>{{vm.heading}}</h1>
     <div layout-gt-xs="row">
         <md-input-container>
-            <label>API Url</label>
-            <input ng-model="vm.apiUrl">
+            <md-tooltip md-direction="top">
+                <small>Do <b>not</b> include trailing slash or 'yourls-api.php'</small>
+            </md-tooltip>
+            <label>API URL</label>
+            <input ng-change="vm.checkUrl()" ng-model="vm.settings.apiUrl">
+            <div ng-message="" ng-show="vm.error.apiUrl">
+                {{ vm.error.apiUrl }}
+            </div>
+        </md-input-container>
+        <md-input-container>
+            <label>Signature Token</label>
+            <input ng-model="vm.settings.token">
+            <div ng-message="" ng-show="vm.error.token">
+                {{ vm.error.token }}
+            </div>
         </md-input-container>
     </div>
     <div layout-gt-xs="row">
-      <md-button class="md-raised md-primary" ng-click="save()">Save Settings</md-button>
+        <md-button class="md-raised md-primary" ng-click="vm.save()" ng-disabled="vm.disabled">Save Settings</md-button>
+        <div ng-message="" ng-show="vm.error.saved">
+            {{ vm.error.saved }}
+        </div>
     </div>
 </md-content>
