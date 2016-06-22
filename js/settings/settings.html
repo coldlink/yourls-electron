@@ -1,13 +1,13 @@
 <md-content flex layout-padding>
     <div layout-gt-xs="row">
         <md-input-container>
-            <md-tooltip md-direction="top">
-                <small>Do <b>not</b> include trailing slash or 'yourls-api.php'</small>
-            </md-tooltip>
             <label>API URL</label>
             <input ng-change="vm.checkUrl()" ng-model="vm.settings.apiUrl">
             <div ng-message="" ng-show="vm.error.apiUrl">
                 {{ vm.error.apiUrl }}
+            </div>
+            <div ng-message="">
+                <small>Do <b>not</b> include trailing slash or 'yourls-api.php'</small>
             </div>
         </md-input-container>
         <md-input-container>
