@@ -6,7 +6,7 @@ Desktop menubar/taskbar app for the YOURLS url shortner made using electron
 
 ### Installation
 
-Download latest packaged version of YOURLS Electron from https://github.com/coldlink/yourls-electron/releases. Windows and OSX.
+Download latest packaged version of YOURLS Electron from https://l.mkn.sh/yourlselectron. Windows and OSX.
 
 ### Dev Installation
 ```sh
