@@ -13,6 +13,7 @@
     vm.disabled = false;
     vm.error = {};
     vm.shorten = shorten;
+    vm.copyToClipboard = copyToClipboard;
 
     if (!vm.settings.validateUrl) {
       vm.settings.validateUrl = true;
@@ -30,6 +31,10 @@
     });
 
     //methods
+    function copyToClipboard() {
+        require('electron').clipboard.writeText(vm.shortenUrl);
+    }
+
     function shorten() {
       if (!vm.url) {
         vm.error.url = 'URL to shorten is required.';

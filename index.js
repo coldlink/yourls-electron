@@ -11,7 +11,9 @@ const {
 let settings = {};
 
 let mb = menubar({
-	'tooltip': 'YOURLS Electron'
+	'tooltip': 'YOURLS Electron',
+	'icon': 'css/Icon.png',
+	'height': 550
 });
 
 mb.on('ready', function ready() {
