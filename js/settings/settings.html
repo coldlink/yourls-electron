@@ -1,5 +1,5 @@
 <md-content flex layout-padding>
-    <div layout-gt-xs="row">
+    <div layout-gt-sm="row">
         <md-input-container>
             <label>API URL</label>
             <input ng-change="vm.checkUrl()" ng-model="vm.settings.apiUrl">
@@ -12,13 +12,13 @@
         </md-input-container>
         <md-input-container>
             <label>Signature Token</label>
-            <input ng-model="vm.settings.token">
+            <input ng-model="vm.settings.token" type="passwordx">
             <div ng-message="" ng-show="vm.error.token">
                 {{ vm.error.token }}
             </div>
         </md-input-container>
     </div>
-    <div layout-gt-xs="row">
+    <div layout-gt-sm="row">
         <md-button class="md-raised md-primary" ng-click="vm.save()" ng-disabled="vm.disabled">Save Settings</md-button>
         <div ng-message="" ng-show="vm.error.saved">
             {{ vm.error.saved }}

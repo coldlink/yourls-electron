@@ -1,2 +1,41 @@
 <md-content flex layout-padding>
+    <div layout="column">
+        <md-input-container>
+            <label>URL to shorten</label>
+            <input ng-model="vm.url">
+            <div ng-message="" ng-show="vm.error.url">
+                {{ vm.error.url }}
+            </div>
+            <div ng-message="">
+                Required
+            </div>
+        </md-input-container>
+        <md-input-container>
+            <label>Keyword</label>
+            <input ng-model="vm.keyword">
+            <div ng-message="" ng-show="vm.error.keyword">
+                {{ vm.error.keyword }}
+            </div>
+            <div ng-message="" ng-show="vm.keyword">
+                {{ vm.settings.apiUrl + '/' + vm.keyword}}
+            </div>
+        </md-input-container>
+        <md-input-container>
+            <md-checkbox ng-model="vm.settings.validateUrl" aria-label="Validate URL">
+                Validate URL?
+            </md-checkbox>
+        </md-input-container>
+    </div>
+    <div layout-gt-sm="column">
+        <md-button class="md-raised md-primary" ng-click="vm.shorten()">Shorten Url</md-button>
+    </div>
+    <div layout-gt-sm="column">
+      <md-input-container>
+          <label>Shortened Url</label>
+          <input ng-model="vm.shortenUrl" ng-disabled="true">
+          <div ng-message="" ng-show="vm.error.shortenUrl">
+              {{ vm.error.shortenUrl }}
+          </div>
+      </md-input-container>
+    </div>
 </md-content>
